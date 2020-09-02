@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -16,7 +15,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username',
+        'email',
+        'password',
+        'background_color',
+        'text_color'
     ];
 
     /**
@@ -29,11 +32,22 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be cast to native types.
+     * Get the links associated with a user
      *
-     * @var array
+     * @return Relationship
      */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    public function links()
+    {
+        return $this->hasMany('App\Link');
+    }
+
+    /**
+     * Get all the visits for a user
+     * 
+     * @return Relationship
+     */
+    public function visits()
+    {
+        return $this->hasManyThrough('App\Visit', 'App\Link');
+    }
 }
