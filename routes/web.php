@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Auth::routes();
+
 // linktree-clone.com/dashboard
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
@@ -29,8 +31,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('/settings', 'UserController@edit');
     Route::post('/settings', 'UserController@update');
-
-    
 });
 
 
@@ -39,6 +39,5 @@ Route::post('visit/{link}', 'VisitController@store');
 // linktree-clone.com/username
 Route::get('/{user}', 'UserController@show');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
