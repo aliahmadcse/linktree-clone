@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 // linktree-clone.com/dashboard
@@ -38,3 +38,7 @@ Route::post('visit/{link}', 'VisitController@store');
 
 // linktree-clone.com/username
 Route::get('/{user}', 'UserController@show');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
