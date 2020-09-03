@@ -17,6 +17,8 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 // linktree-clone.com/dashboard
@@ -38,6 +40,3 @@ Route::post('visit/{link}', 'VisitController@store');
 
 // linktree-clone.com/username
 Route::get('/{user}', 'UserController@show');
-
-
-Route::get('/home', 'HomeController@index')->name('home');
