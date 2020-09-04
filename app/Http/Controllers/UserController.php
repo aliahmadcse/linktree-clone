@@ -9,7 +9,10 @@ class UserController extends Controller
 {
     public function show(User $user)
     {
-        return $user;
+        $user->load('links');
+        return view('users.show', [
+            'user' => $user
+        ]);
     }
     /**
      * Undocumented function
