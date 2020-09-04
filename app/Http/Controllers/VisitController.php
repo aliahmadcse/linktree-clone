@@ -9,13 +9,16 @@ use App\Visit;
 class VisitController extends Controller
 {
     /**
-     * Undocumented function
+     * Stores a visit to the link
      *
      * @param Request $request
      * @param Link $link
-     * @return void
+     * @return success
      */
     public function store(Request $request, Link $link)
     {
+        return $link->visits()->create([
+            'user_agent' => $request->userAgent()
+        ]);
     }
 }

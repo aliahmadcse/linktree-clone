@@ -17,3 +17,5 @@ mix.js("resources/js/app.js", "public/js").sass(
 );
 
 mix.browserSync("linktree-clone.test");
+
+mix.disableNotifications();
