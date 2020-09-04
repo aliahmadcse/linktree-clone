@@ -32,4 +32,14 @@ class Link extends Model
     {
         return $this->hasMany('App\Visit');
     }
+
+    /**
+     * returns the latest visit for a link
+     *
+     * @return void
+     */
+    public function latestVisit()
+    {
+        return $this->hasOne('App\Visit')->latest();
+    }
 }
