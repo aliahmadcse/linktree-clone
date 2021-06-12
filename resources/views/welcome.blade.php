@@ -98,7 +98,7 @@
                     <a href="https://vapor.laravel.com">Vapor</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
-                <h1>Hi there, I am here</h1>
+                <h1>Look for web.php file for application routes</h1>
             </div>
         </div>
     </body>
