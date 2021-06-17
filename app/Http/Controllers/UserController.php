@@ -50,10 +50,12 @@ class UserController extends Controller
         // always want a full hexadecimal e.g #ff0022
         $request->validate([
             'text_color' => 'required|size:7|starts_with:#',
-            'background_color' => 'required|size:7|starts_with:#'
+            'background_color' => 'required|size:7|starts_with:#',
+            'first_name' => 'required',
+            'last_name' => 'required'
         ]);
 
-        Auth::user()->update($request->only('background_color', 'text_color'));
+        Auth::user()->update($request->input());
 
         return redirect()->back()->with(['success' => 'Changes saved successfully']);
     }

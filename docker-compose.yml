@@ -7,6 +7,7 @@ services:
             dockerfile: Dockerfile
             args:
                 WWWGROUP: '${WWWGROUP}'
+        restart: always
         image: sail-8.0/app
         ports:
             - '8084:80'
@@ -21,6 +22,7 @@ services:
             - mysql
     mysql:
         image: 'mysql:8.0'
+        restart: always
         ports:
             - '${FORWARD_DB_PORT:-3306}:3306'
         environment:
