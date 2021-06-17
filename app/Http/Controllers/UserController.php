@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Auth;
+use Image;
 
 class UserController extends Controller
 {
@@ -28,8 +29,13 @@ class UserController extends Controller
      */
     public function edit()
     {
+        $links = Auth::user()->links()
+            ->withCount('visits')
+            ->with('latestVisit')
+            ->get();
         return view('users.edit', [
-            'user' => Auth::user()
+            'user' => Auth::user(),
+            'links'=>$links,
         ]);
     }
 
@@ -50,5 +56,31 @@ class UserController extends Controller
         Auth::user()->update($request->only('background_color', 'text_color'));
 
         return redirect()->back()->with(['success' => 'Changes saved successfully']);
+    }
+
+
+
+    public function updateprofilepic(Request $request){
+
+        // Handle the user upload of avatar
+        if($request->hasFile('profile_pic')){
+            $profile_pic = $request->file('profile_pic');
+            $filename = time() . '.' . $profile_pic->getClientOriginalExtension();
+            Image::make($profile_pic)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+
+            $user = Auth::user();
+            $user->profile_pic = $filename;
+            $user->save();
+        }
+
+        $links = Auth::user()->links()
+            ->withCount('visits')
+            ->with('latestVisit')
+            ->get();
+        return view('users.edit', [
+            'user' => Auth::user(),
+            'links'=>$links,
+        ]);
+
     }
 }

@@ -33,6 +33,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function () {
 
     Route::get('/settings', 'UserController@edit');
     Route::post('/settings', 'UserController@update');
+
+    Route::post('/profile-pic', 'UserController@updateprofilepic');
 });
 
 

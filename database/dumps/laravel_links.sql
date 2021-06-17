@@ -1,0 +1,6 @@
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (1, 1, 'Github', 'https://github.com/jayjayb772', '2021-06-04 17:26:40', '2021-06-04 17:26:40');
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (2, 1, 'LinkedIn', 'https://www.linkedin.com/in/j-bender', '2021-06-04 17:30:58', '2021-06-04 18:02:18');
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (3, 1, 'Amazon Alternative Chrome Extension', 'https://chrome.google.com/webstore/detail/amazon-alternative-search/fclbfgpfnhjgdgkfjnijflcmgfhpjmbk', '2021-06-04 17:31:48', '2021-06-04 17:31:48');
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (4, 1, 'Instagram', 'https://www.instagram.com/ninjew33/', '2021-06-04 17:32:35', '2021-06-04 17:32:35');
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (5, 1, 'BLM Resources', 'https://blacklivesmatters.carrd.co/', '2021-06-04 17:44:16', '2021-06-04 17:44:16');
+INSERT INTO laravel.links (id, user_id, name, link, created_at, updated_at) VALUES (6, 1, 'Github Student Pack (Coders! Get this! it''s free!)', 'https://education.github.com/pack', '2021-06-04 17:45:12', '2021-06-04 17:45:12');

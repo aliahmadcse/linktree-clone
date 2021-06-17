@@ -3,8 +3,14 @@
 @section('content')
 <div class="container">
 <div class="row">
-<img class="d-block text-center mb-4" style="border-radius:50%;margin-left:auto;margin-right:auto; border:2px solid {{ $user->text_color }};color:{{ $user->text_color }}" src="/img/profile_pic.jpeg" alt="Avatar">
-</div> 
+<img class="d-block text-center mb-4" style="border-radius:50%;margin-left:auto;margin-right:auto; border:2px solid {{ $user->text_color }};color:{{ $user->text_color }}" src="/uploads/avatars/{{$user->profile_pic}}" alt="Avatar">
+</div>
+    <div class="row">
+        <h2>
+            {{$user->first_name}} {{$user->last_name}}
+        </h2>
+        <a>{{$user->pronouns}}</a>
+    </div>
     <div class="row">
         <div class="col-12 col-md-6 offset-md-3">
             @foreach ($user->links as $link)
